@@ -1,0 +1,65 @@
+﻿@model IEnumerable<SkiShopMD.Models.Snowboards>
+
+@{
+    ViewData["Title"] = "Snowboards";
+}
+
+<h1>Snowboards</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Products)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lenght)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CratedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Products)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lenght)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CratedDate)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SnowboardsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SnowboardsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SnowboardsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
